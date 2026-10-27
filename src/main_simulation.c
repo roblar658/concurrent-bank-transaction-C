@@ -1,9 +1,12 @@
 #include "simulation.h"
+#include "sync_primitives.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
 int main(int argc, char* argv[]) {
+    bank_init_console_utf8();
+
     printf("================================================================================\n");
     printf("     C BANK SIMULERINGSMOTOR - MASSIV SAMTIDIGHET MED PREDEFINERT CSV-DATA     \n");
     printf("================================================================================\n\n");

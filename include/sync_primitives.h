@@ -46,6 +46,11 @@ static inline void bank_sleep_ms(unsigned int ms) {
     Sleep(ms);
 }
 
+static inline void bank_init_console_utf8(void) {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+}
+
 #else
 // POSIX Fallback (Linux / macOS)
 #include <pthread.h>
@@ -86,6 +91,10 @@ static inline void bank_thread_join(bank_thread_t t) {
 
 static inline void bank_sleep_ms(unsigned int ms) {
     usleep(ms * 1000);
+}
+
+static inline void bank_init_console_utf8(void) {
+    // POSIX terminals are UTF-8 by default
 }
 #endif
 

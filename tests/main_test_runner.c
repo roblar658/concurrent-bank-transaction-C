@@ -474,6 +474,8 @@ static void test_csv_simulation_adversarial(void) {
 }
 
 int main(void) {
+    bank_init_console_utf8();
+
     printf("================================================================================\n");
     printf("  C CONCURRENT BANK TRANSFER - TEST SUITE & VERIFIKASJON (WINDOWS NATIVE)       \n");
     printf("================================================================================\n\n");

@@ -5,6 +5,9 @@ param (
     [int]$Workers = 16
 )
 
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
 $ErrorActionPreference = "Stop"
 $ProjectRoot = $PSScriptRoot
 Set-Location $ProjectRoot
@@ -28,11 +31,9 @@ $Sources = @(
     "src/simulation.c"
 )
 
-# Kompiler om nødvendig
-if (-not (Test-Path $SimExe)) {
-    Write-Host "`nKompilerer simuleringsmotor med GCC..." -ForegroundColor Yellow
-    gcc -O2 -Iinclude $Sources -o $SimExe
-}
+# Kompiler simuleringsmotor
+Write-Host "`nKompilerer simuleringsmotor med GCC..." -ForegroundColor Yellow
+gcc -O2 -Iinclude $Sources -o $SimExe
 
 Write-Host "`nKjører simulering..." -ForegroundColor Green
 & $SimExe $AccountsCsv $TransactionsCsv $Workers
