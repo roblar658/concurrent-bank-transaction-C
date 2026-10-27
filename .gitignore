@@ -1,0 +1,21 @@
+# Binaries & object files
+bin/
+*.exe
+*.o
+*.obj
+*.pdb
+*.ilk
+
+# Build directories
+build/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# IDE & OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
